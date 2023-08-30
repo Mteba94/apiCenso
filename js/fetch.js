@@ -97,6 +97,49 @@ function getPoblacion2(){
 
                     var capital = document.getElementById("capital");
                     capital.innerHTML = data[0].capital;
+
+                    var indMasculinidad = document.getElementById("indMasculinidad");
+                    indMasculinidad.innerHTML = data[0].indice_masculinidad;
+
+                    var edadProm = document.getElementById("edadProm");
+                    edadProm.innerHTML = data[0].edad_promedio;
+
+                    var indDepend = document.getElementById("indDepend");
+                    indDepend.innerHTML = data[0].indice_dependencia;
+
+                    var aniosProm = document.getElementById("aniosProm");
+                    aniosProm.innerHTML = data[0].anios_prom_estudio;
+
+                    var alfabetismo = document.getElementById("alfabetismo");
+                    alfabetismo.innerHTML = data[0].alfabetismo;
+
+                    var vivParticulares = document.getElementById("vivParticulares");
+                    vivParticulares.innerHTML = data[0].viviendas_part.toLocaleString().replace(/\./g, ',');
+
+                    var totHogares = document.getElementById("totHogares");
+                    totHogares.innerHTML = data[0].total_hogares.toLocaleString().replace(/\./g, ',');
+
+                    var promPersonas = document.getElementById("promPersonas");
+                    promPersonas.innerHTML = data[0].prom_personas_hogar;
+
+                    var jefasHogar = document.getElementById("jefasHogar");
+                    jefasHogar.innerHTML = data[0].total_jefas_hogar;
+
+                    var totalPobla = document.getElementById("totalPobla");
+                    totalPobla.innerHTML = "Total población: " + 
+                    data[0].pob_total.toLocaleString().replace(/\./g, ',') + " hab";
+
+                    var hombres = document.getElementById("Hombres");
+                    hombres.innerHTML = data[0].total_sexo_hombre.toLocaleString().replace(/\./g, ',');
+
+                    var mujeres = document.getElementById("Mujeres");
+                    mujeres.innerHTML = data[0].total_sexo_mujeres.toLocaleString().replace(/\./g, ',');
+
+                    var urbana = document.getElementById("Urbana");
+                    urbana.innerHTML = data[0].total_sector_urbano.toLocaleString().replace(/\./g, ',');
+
+                    var rural = document.getElementById("Rural");
+                    rural.innerHTML = data[0].total_sector_rural.toLocaleString().replace(/\./g, ',');
                 }
 
             } else {
@@ -139,25 +182,53 @@ function getPoblacion2(){
                     var capital = document.getElementById("capital");
                     capital.innerHTML = data[0].capital;
 
+                    var indMasculinidad = document.getElementById("indMasculinidad");
+                    indMasculinidad.innerHTML = data[0].indice_masculinidad;
+
+                    var edadProm = document.getElementById("edadProm");
+                    edadProm.innerHTML = data[0].edad_promedio;
+
+                    var indDepend = document.getElementById("indDepend");
+                    indDepend.innerHTML = data[0].indice_dependencia;
+
+                    var aniosProm = document.getElementById("aniosProm");
+                    aniosProm.innerHTML = data[0].anios_prom_estudio;
+
+                    var alfabetismo = document.getElementById("alfabetismo");
+                    alfabetismo.innerHTML = data[0].alfabetismo;
+
+                    var vivParticulares = document.getElementById("vivParticulares");
+                    vivParticulares.innerHTML = data[0].viviendas_part.toLocaleString().replace(/\./g, ',');
+
+                    var totHogares = document.getElementById("totHogares");
+                    totHogares.innerHTML = data[0].total_hogares.toLocaleString().replace(/\./g, ',');
+
+                    var promPersonas = document.getElementById("promPersonas");
+                    promPersonas.innerHTML = data[0].prom_personas_hogar;
+
+                    var jefasHogar = document.getElementById("jefasHogar");
+                    jefasHogar.innerHTML = data[0].total_jefas_hogar;
+
+                    var totalPobla = document.getElementById("totalPobla");
+                    totalPobla.innerHTML = "Total población: " + 
+                    data[0].pob_total.toLocaleString().replace(/\./g, ',') + " hab";
+
+                    var hombres = document.getElementById("Hombres");
+                    hombres.innerHTML = data[0].total_sexo_hombre.toLocaleString().replace(/\./g, ',');
+
+                    var mujeres = document.getElementById("Mujeres");
+                    mujeres.innerHTML = data[0].total_sexo_mujeres.toLocaleString().replace(/\./g, ',');
+
+                    var urbana = document.getElementById("Urbana");
+                    urbana.innerHTML = data[0].total_sector_urbano.toLocaleString().replace(/\./g, ',');
+
+                    var rural = document.getElementById("Rural");
+                    rural.innerHTML = data[0].total_sector_rural.toLocaleString().replace(/\./g, ',');
+
                 } else {
 
-                    var titutloDepartamento = document.getElementById("tituloDepartamento");
-                    titutloDepartamento.innerHTML = "Resultados departamento de " + data[0].nombre;
+                    console.log("No hay datos");
 
-                    var tituloDepto = document.getElementById("tituloDepto");
-                    tituloDepto.innerHTML = "Total municipios:"
-
-                    var nombreDepartamento = document.getElementById("nombreDepartamento");
-                    nombreDepartamento.innerHTML = data[0].nombre;
-
-                    var totalDepartamentos = document.getElementById("totalDepartamentos");
-                    totalDepartamentos.innerHTML = data[0].total_lugares;
-
-                    var tituloCapital = document.getElementById("tituloCapital");
-                    tituloCapital.innerHTML = "Cabecera: "
-
-                    var capital = document.getElementById("capital");
-                    capital.innerHTML = data[0].capital;
                 }
 
             } else {
@@ -171,3 +242,4 @@ function getPoblacion2(){
 
   
   
+

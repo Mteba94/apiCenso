@@ -1,15 +1,4 @@
 
-body{
-    background: #f2f2f2;
-    display: flex;
-    place-content: center;
-}
-
-.container{
-    width: 50%;
-
-}
-
 .container path{
     fill: #c2ccf2;
     stroke: black;
@@ -20,3 +9,36 @@ body{
 .container :hover{
     fill: #3490dc;
 }
+
+.nombres_izq1 {
+    width: 64px;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .nombres_der1 {
+    width: 191px;
+    text-align: right;
+    font-size: 14px;
+  }
+
+.indicador_izq {
+    width: 190px !important;
+    text-align: left;
+    font-size: 13px;
+  }
+
+.indicador_der {
+   width: 65px !important;
+   text-align: right;
+   font-size: 13.5px;
+}  
+
+.fondo_texto2 {
+    background: #65c0ea;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    margin: 0px;
+      margin-top: 0px;
+  }
