@@ -1,0 +1,23 @@
+
+
+body{
+    background: #f2f2f2;
+    display: flex;
+    place-content: center;
+}
+
+.container1{
+    width: 50%;
+
+}
+
+.container1 path{
+    fill: #c2ccf2;
+    stroke: black;
+    stroke-width: 0.5px;
+    opacity: 1;
+}
+
+.container1 :hover{
+    fill: #3490dc;
+}
