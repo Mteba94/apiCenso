@@ -11,6 +11,8 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="./css/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
 
@@ -19,7 +21,7 @@
         <div class="row">
             <div id="mapa-container" class="col-sm-5">
                 <div class="tooltip" style="opacity: 0; left: 1px; top: 173px;">Petén</div>
-                <button id="mostrar-mapa-completo" class="mt-2 btn btn-info ng-scope">
+                <button id="mostrar-mapa-completo" onclick="getPoblacion2()" class="mt-2 btn btn-info ng-scope">
                     Mapa Completo
                 </button>
                 <svg id="mapa-svg" version="1.2" viewbox="0 0 1000 1056" xmlns="http://www.w3.org/2000/svg">
@@ -138,10 +140,7 @@
                     </div>
                 </div>
                 <select id="ciudad" class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Departamento</option>
                 </select>
                 <table class="table table-hover">
                     <tbody>
@@ -222,13 +221,16 @@
                         <tr>
                             <th scope="row" class="indicador_izq">Hombres</th>
                             <td id="Hombres" class="indicador_der"></td>
+                            <td id="porHombres" class="indicador_der"></td>
                         </tr>
                         <tr>
                             <th scope="row" id="tituloDepto" class="indicador_izq">Mujeres</th>
                             <td id="Mujeres" class="indicador_der"></td>
+                            <td id="porMujeres" class="indicador_der"></td>
                         </tr>
                     </tbody>
                 </table>
+                <canvas id="graficoPobla"></canvas>
             </div>
             <div class="col-sm">
                 <h5 class="fondo_texto2">Población por área</h5>
@@ -237,20 +239,87 @@
                         <tr>
                             <th scope="row" class="indicador_izq">Urbana</th>
                             <td id="Urbana" class="indicador_der"></td>
+                            <td id="porUrbana" class="indicador_der"></td>
                         </tr>
                         <tr>
                             <th scope="row" id="tituloDepto" class="indicador_izq">Rural</th>
                             <td id="Rural" class="indicador_der"></td>
+                            <td id="porRural" class="indicador_der"></td>
                         </tr>
                     </tbody>
                 </table>
+                <canvas id="graficoArea"></canvas>
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <h5 class="fondo_texto2">Población por grandes grupos de edad</h5>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th scope="row" class="indicador_izq">0-14 años</th>
+                        <td id="ceroCatorce" class="indicador_der"></td>
+                        <td id="porceroCatorce" class="indicador_der"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" id="tituloDepto" class="indicador_izq">15-64 años</th>
+                        <td id="quince" class="indicador_der"></td>
+                        <td id="porQuince" class="indicador_der"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="indicador_izq">65 y más años</th>
+                        <td id="sesenta" class="indicador_der"></td>
+                        <td id="porSesenta" class="indicador_der"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <canvas id="graficoEdad"></canvas>
+        </div>
+        <div class="col-sm">
+            <h5 class="fondo_texto2">Población por pueblos</h5>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th scope="row" class="indicador_izq">Maya</th>
+                        <td id="maya" class="indicador_der"></td>
+                        <td id="porMaya" class="indicador_der"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" id="tituloDepto" class="indicador_izq">Garífuna</th>
+                        <td id="garifuna" class="indicador_der"></td>
+                        <td id="porGarifuna" class="indicador_der"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="indicador_izq">Xinka</th>
+                        <td id="xinca" class="indicador_der"></td>
+                        <td id="porXinca" class="indicador_der"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" id="tituloDepto" class="indicador_izq">Afrodescendiente/Creole/Afromestizo</th>
+                        <td id="afro" class="indicador_der"></td>
+                        <td id="porAfro" class="indicador_der"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="indicador_izq">Ladino</th>
+                        <td id="ladino" class="indicador_der"></td>
+                        <td id="porLadino" class="indicador_der"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" id="tituloDepto" class="indicador_izq">Extranjero</th>
+                        <td id="extranjero" class="indicador_der"></td>
+                        <td id="porExtranjero" class="indicador_der"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <canvas id="graficoPueblo"></canvas>
+        </div>
+    </div>
+</div>
 
 </body>
 <script src="./js/fetch.js"></script>
 <script src="./js/nomdepto.js"></script>
 <script src="./js/municipios.js"></script>
-
 </html>
