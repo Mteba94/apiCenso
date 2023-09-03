@@ -45,6 +45,11 @@ var chartPueblo
 
 
 
+let municipios = [];
+let valmuni;
+let urlmuni;
+
+
 
 
 function getPoblacion2(){
@@ -64,10 +69,91 @@ function getPoblacion2(){
         } else {
             url =  "https://censopoblacion.gt/indicadores/98/999";
         }
+
     
         fetch(url)
         .then(response => response.json())
         .then(data => {
+            
+            //console.log(data[0].total_lugares);
+
+            municipios = [];
+            idDepto = data[0].depto_id
+
+            if (idDepto<10){
+                idDepto = "0" + idDepto
+            }else{
+                idDepto
+            }
+
+            for (let i = 1; i <= data[0].total_lugares; i++) {
+                
+                if (i<10){
+                    valmuni = idDepto + "0" + i
+                } else {
+                    valmuni = idDepto + "" + i
+                }
+                
+                urlmuni = "https://censopoblacion.gt/indicadores/"+valor+"/"+valmuni;
+                municipios.push(urlmuni)
+            }
+
+            //console.log(municipios);
+
+            const consumeURLs = () => {
+                const resultados = [];
+              
+                const promesas = municipios.map(url => {
+                  return fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                      resultados.push(data); // Agregar la respuesta a resultados
+                    })
+                    .catch(error => {
+                      // Manejar errores si es necesario
+                      console.error(`Error en la solicitud a ${url}:`, error);
+                    });
+                });
+              
+                // Esperar a que todas las promesas se resuelvan
+                Promise.all(promesas)
+                  .then(() => {
+                    // Ahora, resultados contiene todas las respuestas de las URLs consumidas
+                    //console.log(resultados);
+
+                    var llamarCiudad = document.getElementById("llamarCiudad");
+
+                    // Restablece el valor seleccionado a una opción vacía o nula
+                    llamarCiudad.value = null;
+
+                    // Borra todas las opciones actuales
+                    llamarCiudad.innerHTML = '';
+                    
+                    resultados.forEach(subarray => {
+                        
+                        subarray.forEach(element => {
+                            const nombre = element.nombre
+
+
+                            const option = document.createElement("option");
+                            option.text = nombre;
+
+                            // Agrega la opción al elemento 'select'
+                            llamarCiudad.appendChild(option);
+                            console.log(nombre)
+                        })
+                    })
+                    
+                    // Aquí puedes procesar los resultados según tus necesidades
+                  })
+                  .catch(error => {
+                    // Manejar errores si es necesario
+                    console.error('Error al esperar las promesas:', error);
+                  });
+              };
+              
+              // Llama a la función para consumir las URLs
+              consumeURLs();
             
 
             if (data.length > 0){
@@ -830,5 +916,3 @@ function getPoblacion2(){
 }
 
   
-  
-
